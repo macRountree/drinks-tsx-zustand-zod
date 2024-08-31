@@ -7,7 +7,9 @@ export const Header = () => {
 
   const isHome = useMemo(() => pathname === '/', [pathname]);
   return (
-    <header className="bg-slate-800 ">
+    <header
+      className={isHome ? 'bg-header bg-center bg-cover' : 'bg-slate-700'}
+    >
       <div className="mx-auto container px-5 py-16">
         {' '}
         <div className="flex justify-between items-center">
@@ -20,8 +22,8 @@ export const Header = () => {
               to="/"
               className={({isActive}) =>
                 isActive
-                  ? 'text-rose-400   text-lg  uppercase font-bold'
-                  : 'text-white uppercase font-bold  '
+                  ? 'text-rose-600   text-2xl  uppercase font-extrabold'
+                  : 'text-white uppercase font-extrabold text-2xl  '
               }
             >
               Home
@@ -30,8 +32,8 @@ export const Header = () => {
               to="/favorites"
               className={({isActive}) =>
                 isActive
-                  ? 'text-rose-400   text-lg  uppercase font-bold'
-                  : 'text-white uppercase font-bold  '
+                  ? 'text-rose-600   text-2xl  uppercase font-bold'
+                  : 'text-white uppercase font-bold text-2xl  '
               }
             >
               Favorites
@@ -71,7 +73,6 @@ export const Header = () => {
                 name="category"
                 id="category"
                 className="p-3 w-full rounded-lg focus:outline-none text-2xl"
-                value=""
               >
                 <option>--Select Category --</option>
               </select>
