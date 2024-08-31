@@ -20,8 +20,7 @@ export const IndexPage = () => {
       ) : (
         <p className="text-4xl text-center bg-rose-600 p-2 rounded-md text-white font-extrabold mt-6">
           {' '}
-          Not Recipes Found. Please try again typing a different ingredient or
-          category{' '}
+          Not Recipes. Please try typing an ingredient or category{' '}
         </p>
       )}
     </>
