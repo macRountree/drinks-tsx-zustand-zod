@@ -61,8 +61,8 @@ export const Header = () => {
               to="/"
               className={({isActive}) =>
                 isActive
-                  ? 'text-rose-600   text-2xl  uppercase font-extrabold'
-                  : 'text-white uppercase font-extrabold text-2xl  '
+                  ? 'text-rose-600   text-4xl  uppercase font-extrabold'
+                  : 'text-white uppercase font-extrabold text-4xl  '
               }
             >
               Home
@@ -71,8 +71,8 @@ export const Header = () => {
               to="/favorites"
               className={({isActive}) =>
                 isActive
-                  ? 'text-rose-600   text-2xl  uppercase font-bold'
-                  : 'text-white uppercase font-bold text-2xl  '
+                  ? 'text-rose-600   text-4xl  uppercase font-bold'
+                  : 'text-white uppercase font-bold text-4xl  '
               }
             >
               Favorites
