@@ -1,10 +1,10 @@
 import {StateCreator} from 'zustand';
 import {getCategories, getRecipesByCategory} from '../services/RecipesService';
-import {Categories, Recipe, SearchFilter} from '../interfaces';
+import {Categories, Recipes, SearchFilter} from '../interfaces';
 
 export interface RecipesSliceProps {
   categories: Categories;
-  recipes: Recipe;
+  recipes: Recipes;
   fetchCategories: () => Promise<void>;
   searchRecipes: (searchFilter: SearchFilter) => Promise<void>;
 }

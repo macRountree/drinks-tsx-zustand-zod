@@ -14,11 +14,11 @@ export const SearchFilterSchema = z.object({
 });
 
 export const RecipeSchema = z.object({
-  drinks: z.array(
-    z.object({
-      idDrink: z.string(),
-      strDrink: z.string(),
-      strDrinkThumb: z.string(),
-    })
-  ),
+  idDrink: z.string(),
+  strDrink: z.string(),
+  strDrinkThumb: z.string(),
+});
+
+export const RecipesSchema = z.object({
+  drinks: z.array(RecipeSchema),
 });

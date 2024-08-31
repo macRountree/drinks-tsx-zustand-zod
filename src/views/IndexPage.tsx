@@ -1,21 +1,20 @@
 import {useMemo} from 'react';
 import {useGlobalStore} from '../stores/useGlobalStore';
+import {RecipesCard} from '../components/RecipesCard';
 
 export const IndexPage = () => {
-  const recipesList = useGlobalStore(state => state.recipes);
+  const recipe = useGlobalStore(state => state.recipes);
 
-  const hasRecipes = useMemo(() => recipesList.drinks.length, [recipesList]);
+  const hasRecipes = useMemo(() => recipe.drinks.length, [recipe]);
 
   return (
     <>
       <h1 className="text-center text-8xl font-extrabold"> Recipes </h1>
+
       {hasRecipes ? (
-        <div>
-          {recipesList.drinks.map(recipe => (
-            <div key={recipe.idDrink}>
-              <img src={recipe.strDrinkThumb} alt="" />
-              <h3> {recipe.strDrink} </h3>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-10 gap-10">
+          {recipe.drinks.map(recipe => (
+            <RecipesCard key={recipe.idDrink} recipe={recipe} />
           ))}
         </div>
       ) : (
