@@ -2,7 +2,7 @@ import {useGlobalStore} from '../stores/useGlobalStore';
 import {RecipesCard} from '../components/RecipesCard';
 import {useMemo} from 'react';
 
-export const FavoritesPage = () => {
+const FavoritesPage = () => {
   const favorites = useGlobalStore(state => state.favorites);
   const hasFavs = useMemo(() => favorites.length, [favorites]);
   return (
@@ -26,3 +26,5 @@ export const FavoritesPage = () => {
     </>
   );
 };
+
+export default FavoritesPage;

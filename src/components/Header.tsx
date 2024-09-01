@@ -19,6 +19,7 @@ export const Header = () => {
   const fetchCategories = useGlobalStore(state => state.fetchCategories);
   const categories = useGlobalStore(state => state.categories);
   const searchRecipes = useGlobalStore(state => state.searchRecipes);
+  const showNotification = useGlobalStore(state => state.showNotification);
   // console.log(categories);
   useEffect(() => {
     fetchCategories();
@@ -36,8 +37,7 @@ export const Header = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (Object.values(searchFilters).includes('')) {
-      console.log('Please fill in all fields');
-      throw new Error('Please fill in all fields');
+      showNotification({text: 'Please fill all the fields', error: true});
       return;
     }
     //!Notification
