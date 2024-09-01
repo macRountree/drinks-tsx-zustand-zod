@@ -1,6 +1,7 @@
 import {ChangeEvent, FormEvent, useEffect, useMemo, useState} from 'react';
 import {NavLink, useLocation} from 'react-router-dom';
 import {useGlobalStore} from '../stores/useGlobalStore';
+import {SocialMedia} from './SocialMedia';
 
 export const Header = () => {
   //*Local State
@@ -49,7 +50,7 @@ export const Header = () => {
     <header
       className={isHome ? 'bg-header bg-center bg-cover' : 'bg-slate-700'}
     >
-      <div className="mx-auto container px-5 py-16">
+      <div className="mx-auto container px-5 pt-16">
         {' '}
         <div className="flex justify-between items-center">
           <div>
@@ -82,7 +83,7 @@ export const Header = () => {
         {isHome && (
           <form
             action=""
-            className="md:w-1/2 2xl:w-1/3 bg-rose-400 my-16 p-10 rounded-lg shadow space-y-6"
+            className="md:w-1/2 2xl:w-1/3 bg-rose-400 my-8 p-10 rounded-lg shadow space-y-6"
             onSubmit={handleSubmit}
           >
             <div>
@@ -138,6 +139,7 @@ export const Header = () => {
           </form>
         )}
       </div>
+      <SocialMedia />
     </header>
   );
 };
