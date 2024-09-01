@@ -1,8 +1,14 @@
 import {Outlet} from 'react-router-dom';
 import {Header} from '../components/Header';
 import RecipeModal from '../components/RecipeModal';
+import {useEffect} from 'react';
+import {useGlobalStore} from '../stores/useGlobalStore';
 
 export const Layout = () => {
+  const loadFromStorage = useGlobalStore(state => state.loadFromStorage);
+  useEffect(() => {
+    loadFromStorage();
+  }, []);
   return (
     <>
       <Header />

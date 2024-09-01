@@ -4,11 +4,15 @@ import {useGlobalStore} from '../stores/useGlobalStore';
 import {RecipeDetail} from '../interfaces/index';
 
 export default function RecipeModal() {
+  //*States to control the modal
   //   const [modal, useModal] = useState(false);
   const modal = useGlobalStore(state => state.modal);
   const closeModal = useGlobalStore(state => state.closeModal);
   const selectedRecipe = useGlobalStore(state => state.selectedRecipe);
+  const handleClickFav = useGlobalStore(state => state.handleClickFavorite);
+  const favoriteExist = useGlobalStore(state => state.favoriteExist);
 
+  //*Function to render the ingredients and quantities
   const renderIngredients = () => {
     const ingredients: JSX.Element[] = [];
 
@@ -94,10 +98,15 @@ export default function RecipeModal() {
                     <button
                       type="button"
                       className="w-full bg-rose-600 text-white p-3 rounded-lg font-bold text-3xl  uppercase shadow hover:bg-rose-500"
-                      onClick={closeModal}
+                      onClick={() => {
+                        handleClickFav(selectedRecipe);
+                        closeModal();
+                      }}
                     >
                       {/* Event add favorite needs to be callback, needs to know if the recipe is in the fav view already */}
-                      Add to Favorites
+                      {favoriteExist(selectedRecipe.idDrink)
+                        ? 'Remove to favorites'
+                        : 'Add to favorites'}
                     </button>
                   </div>
                 </Dialog.Panel>
